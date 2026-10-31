@@ -12,14 +12,6 @@ const getnews = (pageTitle) => `
 // -----------------------------------------------------
 // ИНИЦИАЛИЗАЦИЯ getwelcome И getnews
 // -----------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-    // Вставляем приветствие из veg.js
-    if (typeof getwelcome === 'function') {
-        document.querySelectorAll('.welcome-container').forEach(container => {
-            container.innerHTML = getwelcome();
-        });
-    }
-
     // Вставляем новости из GitHub (news.js)
     if (typeof getnews === 'function') {
         document.querySelectorAll('.news-container').forEach(container => {
