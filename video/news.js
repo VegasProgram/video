@@ -8,3 +8,27 @@ const getnews = (pageTitle) => `
 <p>Я хотел участвовать в его коллабе, но к сожалению не получилось. Потому что все  файлы и проекты в котором я делал RYTP были на флешке, из-за чего файлы там испортились и сломался проект. Вот теперь доверяй все файлы флешке.!</p>
 
 `;
+
+// -----------------------------------------------------
+// ИНИЦИАЛИЗАЦИЯ getwelcome И getnews
+// -----------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    // Вставляем приветствие из veg.js
+    if (typeof getwelcome === 'function') {
+        document.querySelectorAll('.welcome-container').forEach(container => {
+            container.innerHTML = getwelcome();
+        });
+    }
+
+    // Вставляем новости из GitHub (news.js)
+    if (typeof getnews === 'function') {
+        document.querySelectorAll('.news-container').forEach(container => {
+            container.innerHTML = getnews();
+        });
+        
+        // Переинициализируем загрузчики картинок для новостей (если там есть превью видео)
+        if (typeof initImageLoaders === 'function') {
+            initImageLoaders();
+        }
+    }
+});
